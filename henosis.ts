@@ -1,7 +1,20 @@
-import { defineWorker, input } from "@henosis/platform-cloudflare";
+import {
+  declareOutputs,
+  defineWorker,
+  h,
+  workerOutputs,
+} from "@henosis/platform-cloudflare";
+
+const serviceA = declareOutputs(
+  "service-a",
+  h.object({
+    api: h.url(),
+  }),
+);
 
 export default defineWorker({
-  inputs: {
-    BACKEND_URL: input.url("service-a", "api"),
+  outputs: workerOutputs,
+  vars: {
+    BACKEND_URL: serviceA.api,
   },
 });
