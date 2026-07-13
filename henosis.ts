@@ -14,7 +14,7 @@ const definition = {
   name: "service-f",
   project: ".",
   inputs: {
-    BACKEND_URL: output<string>("service-e", "url"),
+    BACKEND_URL: output<string>("service-a", "api"),
   },
 } as const;
 
