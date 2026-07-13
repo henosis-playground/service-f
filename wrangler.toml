@@ -1,0 +1,11 @@
+name = "service-f"
+main = "src/index.js"
+compatibility_date = "2026-07-13"
+workers_dev = true
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
+
+[vars]
+BACKEND_URL = "${henosis:service-e.url}"
