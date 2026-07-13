@@ -11,6 +11,9 @@ importers:
       '@henosis/platform-cloudflare':
         specifier: github:henosis-playground/connector-cloudflare#55ffdd9e55d83900b87f8418c5133fbbe0af7aac&path:packages/platform-cloudflare
         version: https://codeload.github.com/henosis-playground/connector-cloudflare/tar.gz/55ffdd9e55d83900b87f8418c5133fbbe0af7aac#path:packages/platform-cloudflare
+      '@henosis/service-a':
+        specifier: github:henosis-playground/service-a#7c021a629008273fdab0769627ae34261117934b&path:henosis
+        version: https://codeload.github.com/henosis-playground/service-a/tar.gz/7c021a629008273fdab0769627ae34261117934b#path:henosis
     devDependencies:
       typescript:
         specifier: ^5.9.3
@@ -18,8 +21,20 @@ importers:
 
 packages:
 
+  '@henosis/core@https://codeload.github.com/henosis-playground/platform/tar.gz/5d978311ca9ee6e0681cc8880ab2c5b7cb6231ca#path:packages/core':
+    resolution: {gitHosted: true, integrity: sha512-ZMHsDLTQYM0s4yOMYT2UAEH8vJbQEOJ+eD88uPabFqUgmRXs1tS7PHDZHy9z/t9G+0ZjRfGK2kWq1JQzrfM+eA==, tarball: https://codeload.github.com/henosis-playground/platform/tar.gz/5d978311ca9ee6e0681cc8880ab2c5b7cb6231ca}
+    version: 0.0.0
+
   '@henosis/platform-cloudflare@https://codeload.github.com/henosis-playground/connector-cloudflare/tar.gz/55ffdd9e55d83900b87f8418c5133fbbe0af7aac#path:packages/platform-cloudflare':
     resolution: {gitHosted: true, path: packages/platform-cloudflare, tarball: https://codeload.github.com/henosis-playground/connector-cloudflare/tar.gz/55ffdd9e55d83900b87f8418c5133fbbe0af7aac}
+    version: 0.0.0
+
+  '@henosis/platform-k8s@https://codeload.github.com/henosis-playground/platform/tar.gz/5d978311ca9ee6e0681cc8880ab2c5b7cb6231ca#path:packages/platform-k8s':
+    resolution: {gitHosted: true, path: packages/platform-k8s, tarball: https://codeload.github.com/henosis-playground/platform/tar.gz/5d978311ca9ee6e0681cc8880ab2c5b7cb6231ca}
+    version: 0.0.0
+
+  '@henosis/service-a@https://codeload.github.com/henosis-playground/service-a/tar.gz/7c021a629008273fdab0769627ae34261117934b#path:henosis':
+    resolution: {gitHosted: true, path: henosis, tarball: https://codeload.github.com/henosis-playground/service-a/tar.gz/7c021a629008273fdab0769627ae34261117934b}
     version: 0.0.0
 
   typescript@5.9.3:
@@ -27,8 +42,26 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
+  yaml@2.8.1:
+    resolution: {integrity: sha512-lcYcMxX2PO9XMGvAJkJ3OsNMw+/7FKes7/hgerGUYWIoWu5j/+YQqcZr5JnPZWzOsEBgMbSbiSTn/dv/69Mkpw==}
+    engines: {node: '>= 14.6'}
+    hasBin: true
+
 snapshots:
+
+  '@henosis/core@https://codeload.github.com/henosis-playground/platform/tar.gz/5d978311ca9ee6e0681cc8880ab2c5b7cb6231ca#path:packages/core': {}
 
   '@henosis/platform-cloudflare@https://codeload.github.com/henosis-playground/connector-cloudflare/tar.gz/55ffdd9e55d83900b87f8418c5133fbbe0af7aac#path:packages/platform-cloudflare': {}
 
+  '@henosis/platform-k8s@https://codeload.github.com/henosis-playground/platform/tar.gz/5d978311ca9ee6e0681cc8880ab2c5b7cb6231ca#path:packages/platform-k8s':
+    dependencies:
+      '@henosis/core': https://codeload.github.com/henosis-playground/platform/tar.gz/5d978311ca9ee6e0681cc8880ab2c5b7cb6231ca#path:packages/core
+      yaml: 2.8.1
+
+  '@henosis/service-a@https://codeload.github.com/henosis-playground/service-a/tar.gz/7c021a629008273fdab0769627ae34261117934b#path:henosis':
+    dependencies:
+      '@henosis/platform-k8s': https://codeload.github.com/henosis-playground/platform/tar.gz/5d978311ca9ee6e0681cc8880ab2c5b7cb6231ca#path:packages/platform-k8s
+
   typescript@5.9.3: {}
+
+  yaml@2.8.1: {}
