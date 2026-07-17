@@ -8,7 +8,7 @@ export default defineComponent({
     url: output.observed(value.url()),
   },
   build(ctx) {
-    const deployed = ctx.emit(worker.create("service-f", {
+    const deployed = ctx.emit(worker.create("service-f-demo-live", {
       source: {
         entry: "src/index.js",
         assets: "public",
